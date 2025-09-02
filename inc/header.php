@@ -12,7 +12,7 @@
     <title>Blog</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/botstrab/css/bootstrap.min.css" rel="stylesheet">
     <!--
 
     TemplateMo 546 Sixteen Clothing
