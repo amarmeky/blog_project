@@ -35,7 +35,12 @@ else{
   </div>
 </div>
 <!-- Banner Ends Here -->
-
+<?php
+if(isset($_SESSION['success'])){
+  echo "<div class='alert alert-success'>".$_SESSION['success']."</div>";
+  unset($_SESSION['success']);
+}
+?>
 <div class="latest-products">
   <div class="container">
     <div class="row">
@@ -48,9 +53,9 @@ else{
       <?php if(!empty($posts)){
         foreach($posts as $post){
         ?>
-      <div class="col-md-4">
+      <div class="col-md-4" >
         <div class="product-item">
-          <a href="#"><img src="assets/images/postimage/<?php echo $post['image']; ?>" alt=""></a>
+          <a href="viewPost.php?id=<?php echo $post['id']; ?>"><img src="assets/images/postimage/<?php echo $post['image']; ?>" alt=""></a>
           <div class="down-content">
               <h4><?php echo $post['title']; ?></h4>
             <h6><?php echo $post['created_at']; ?></h6>

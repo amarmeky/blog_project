@@ -13,7 +13,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-p.all-view{
+p.all-view {
 	margin-bottom: 0px;
 	font-size: 14px;
 	font-weight: 300;
@@ -25,7 +25,8 @@ p.all-view{
 	overflow: hidden;
 	overflow-wrap: anywhere;
 }
-p.post-view{
+
+p.post-view {
 	margin-bottom: 0px;
 	font-size: 16px;
 	color: #4a4a4a;
@@ -463,11 +464,13 @@ header .navbar {
 .product-item {
 	border: 1px solid #eee;
 	margin-bottom: 30px;
+
 }
 
 .product-item .down-content {
 	padding: 30px;
 	position: relative;
+
 }
 
 .product-item img {
@@ -624,7 +627,9 @@ header .navbar {
 	margin-top: 12px;
 }
 
-
+.col-md-4 {
+	place-content: flex-end;
+}
 
 
 /* Footer */
@@ -637,7 +642,7 @@ footer .inner-content {
 	border-top: 1px solid #eee;
 	margin-top: 60px;
 	padding: 60px 0px;
-	color:#1a6692
+	color: #1a6692
 }
 
 footer .inner-content p {

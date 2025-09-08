@@ -1,4 +1,7 @@
-<?php require_once 'inc/header.php' ?>
+<?php require_once 'inc/header.php';
+require_once 'inc/conn.php';
+
+?>
 
     <!-- Page Content -->
     <div class="page-heading products-heading header-text">
@@ -16,10 +19,18 @@
 
     
 <div class="container w-50 ">
+<?php
+    if(isset($_SESSION['errors'])){
+        foreach($_SESSION['errors'] as $error){
+            echo "<div class='alert alert-danger'>$error</div>";
+        }
+        unset($_SESSION['errors']);
+    }
+?>
   <div class="d-flex justify-content-center">
     <h3 class="my-5">add new Post</h3>
   </div>
-  <form method="POST" action="handel/handeladdpost.php" enctype="multipart/form-data">
+  <form method="POST" action="handle/handleaddpost.php" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" name="title" value="">
