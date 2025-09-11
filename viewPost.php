@@ -68,7 +68,7 @@ if (mysqli_num_rows($result) == 1) {
             <div class="d-flex justify-content-center">
               <a href="editPost.php?id=<?php echo $post['id']; ?>" class="btn btn-success mr-3 "> edit post</a>
 
-              <a href="handel/handeldeletePost.php?id=<?php echo $post['id']; ?>" class="btn btn-danger "> delete post</a>
+              <a href="handle/handleDeletePost.php?id=<?php echo $post['id']; ?>" class="btn btn-danger "> delete post</a>
             </div>
           </div>
         </div>

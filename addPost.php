@@ -44,7 +44,7 @@ require_once 'inc/conn.php';
         <input type="file" class="form-control-file" id="image" name="image" >
     </div>
     <!-- <img src="uploads/<?php echo $post['image'] ?>" alt="" width="100px" srcset=""> -->
-    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+    <button type="submit" class="btn btn-primary" name="submit">add post</button>
   </form>
 </div>
 
