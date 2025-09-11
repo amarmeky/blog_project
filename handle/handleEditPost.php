@@ -30,7 +30,7 @@ if (isset($_POST['submit']) && isset($_GET['id'])) {
             $tmp_name = $image['tmp_name'];
             $error_image = $image['error'];
             $size = $image['size'] / (1024 * 1024);
-            $new_name = uniqid() . "." . $ext;
+            $new_image = uniqid() . "." . $ext;
             if ($error_image != 0) {
                 $errors[] = "Error uploading image";
             } elseif ($size > 1) {
@@ -45,7 +45,7 @@ if (isset($_POST['submit']) && isset($_GET['id'])) {
             $query = "update posts set `title`='$title',`body`='$body',`image`='$new_image' where id=$id";
             $result = mysqli_query($conn, $query);
             if ($result) {
-                move_uploaded_file($tmp_name, '../assets/images/postimage/' . $new_image);
+                move_uploaded_file($tmp_name, '../assets/images/postimage/'.$new_image);
 
                 $success[] = "Post updated successfully";
                 $_SESSION['success'] = $success;
