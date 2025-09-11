@@ -6,6 +6,10 @@ $query="select * from posts where id=$id";
 $result=mysqli_query($conn,$query);
 if (mysqli_num_rows($result) == 1) {
     $post = mysqli_fetch_assoc($result);
+    $old_image=$post['image'];
+    if(!empty($old_image)){
+        unlink('../assets/images/postimage/'.$old_image);
+    }
     $query="delete from posts where id=$id";
     $result=mysqli_query($conn,$query);
     if ($result) {
