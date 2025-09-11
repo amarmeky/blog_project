@@ -7,7 +7,7 @@ if($result>0){
   $posts=mysqli_fetch_all($result, MYSQLI_ASSOC);
 }
 else{
-  $msg="not found products";
+  $msg="not found posts";
 }
 ?>
 <!-- Page Content -->
@@ -35,16 +35,26 @@ else{
   </div>
 </div>
 <!-- Banner Ends Here -->
-<?php
-if(isset($_SESSION['success'])){
-  echo "<div class='alert alert-success'>".$_SESSION['success']."</div>";
-  unset($_SESSION['success']);
-}
-?>
+
 <div class="latest-products">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+        <?php
+        if (isset($_SESSION['errors'])) {
+          foreach ($_SESSION['errors'] as $error) {
+            echo "<div class='alert alert-danger'>$error</div>";
+          }
+          unset($_SESSION['errors']);
+        }
+        if (isset($_SESSION['success'])) {
+          foreach ($_SESSION['success'] as $success) {
+            echo "<div class='alert alert-success'>$success</div>";
+          }
+          unset($_SESSION['success']);
+        }
+        ?>
+        
         <div class="section-heading">
           <h2>Latest Posts</h2>
           <!-- <a href="products.html">view all products <i class="fa fa-angle-right"></i></a> -->
@@ -55,13 +65,13 @@ if(isset($_SESSION['success'])){
         ?>
       <div class="col-md-4" >
         <div class="product-item">
-          <a href="viewPost.php?id=<?php echo $post['id']; ?>"><img src="assets/images/postimage/<?php echo $post['image']; ?>" alt=""></a>
+          <a href="viewPost.php?id=<?php echo $post['id']; ?>"><img src="assets/images/postimage/<?php echo $post['image']; ?>" alt="No Image Now" class="product-image"></a>
           <div class="down-content">
-              <h4><?php echo $post['title']; ?></h4>
-            <h6><?php echo $post['created_at']; ?></h6>
-            <p class='all-view'> <?php echo $post['body']; ?></p>
+              <h4 class="product-title"><?php echo $post['title']; ?></h4>
+            <h6 class="product-date"><?php echo $post['created_at']; ?></h6>
+            <p class='product-body'> <?php echo $post['body']; ?></p>
             <div class="d-flex justify-content-end">
-              <a href="viewPost.php?id=<?php echo $post['id']; ?>" class="btn btn-info "> view</a>
+              <a href="viewPost.php?id=<?php echo $post['id']; ?>" class="product-button btn btn-info "> view</a>
             </div>
           </div>
         </div>

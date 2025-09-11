@@ -13,22 +13,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-p.all-view {
+p {
 	margin-bottom: 0px;
 	font-size: 14px;
 	font-weight: 300;
-	color: #4a4a4a;
-	line-height: 24px;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;
-	overflow: hidden;
-	overflow-wrap: anywhere;
-}
-
-p.post-view {
-	margin-bottom: 0px;
-	font-size: 16px;
 	color: #4a4a4a;
 	line-height: 24px;
 }
@@ -462,59 +450,72 @@ header .navbar {
 }
 
 .product-item {
-	border: 1px solid #eee;
-	margin-bottom: 30px;
-
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: 300px;
+	/* أو العرض المطلوب */
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 20px;
+	height: 100%;
 }
 
-.product-item .down-content {
-	padding: 30px;
-	position: relative;
-
-}
-
-.product-item img {
+.product-image {
 	width: 100%;
-	overflow: hidden;
+	height: auto;
+	border-radius: 8px;
 }
 
-.product-item .down-content h4 {
-	font-size: 17px;
-	color: #1a6692;
-	margin-bottom: 20px;
+.product-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
 }
 
-.product-item .down-content h6 {
-	position: absolute;
-	top: 48px;
-	right: 30px;
+.product-title {
 	font-size: 18px;
-	color: #121212;
+	font-weight: bold;
+	margin-bottom: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	/* إضافة الـ ... */
 }
 
-.product-item .down-content p {
-	margin-bottom: 20px;
-}
-
-.product-item .down-content ul li {
-	display: inline-block;
-}
-
-.product-item .down-content ul li i {
-	color: #f33f3f;
+.product-date {
 	font-size: 14px;
+	color: #777;
+	margin-bottom: 10px;
 }
 
-.product-item .down-content span {
-	position: absolute;
-	right: 30px;
-	bottom: 30px;
-	font-size: 13px;
-	color: #f33f3f;
-	font-weight: 500;
+.product-body {
+	font-size: 14px;
+	color: #333;
+	margin-bottom: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/* إضافة الـ ... */
+	white-space: nowrap;
+	/* منع النص من الانتقال لأسطر جديدة */
+	max-width: 100%;
+	/* حدّد عرض النص */
 }
 
+.product-button {
+	padding: 10px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
 
+.product-button:hover {
+	background-color: #0056b3;
+}
 
 
 /* Best Features */
@@ -627,9 +628,7 @@ header .navbar {
 	margin-top: 12px;
 }
 
-.col-md-4 {
-	place-content: flex-end;
-}
+
 
 
 /* Footer */
@@ -642,7 +641,6 @@ footer .inner-content {
 	border-top: 1px solid #eee;
 	margin-top: 60px;
 	padding: 60px 0px;
-	color: #1a6692
 }
 
 footer .inner-content p {

@@ -4,6 +4,7 @@ if(isset($_POST['submit'])){
     $title=trim(htmlspecialchars($_POST['title']));
     $body=trim(htmlspecialchars($_POST['body']));
     $errors=[];
+    $success=[];
     if(empty($title)){
         $errors[]="Title is required";
     }elseif (is_numeric($title)) {
@@ -21,7 +22,7 @@ if(isset($_POST['submit'])){
         $ext=strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
         $image_errors=$image['error'];
         $size=$image['size']/(1024*1024);
-        $new_name=uniqid().".".$ext;
+        $new_image=uniqid().".".$ext;
         if ($image_errors!=0) {
             $errors[]="Error uploading image";
         }elseif ($size>1) {
@@ -30,16 +31,17 @@ if(isset($_POST['submit'])){
             $errors[]="Invalid image format";
         }
     }else{
-        $new_name=null;
+        $new_image=null;
     }
     if(empty($errors)){
-        $query="INSERT INTO posts (title, body, image,user_id) VALUES ('$title', '$body', '$new_name',1)";
+        $query="INSERT INTO posts (title, body, image,user_id) VALUES ('$title', '$body', '$new_image',1)";
         $result=mysqli_query($conn,$query);
         if ($result) {
-            if(isset($new_name)){
-                move_uploaded_file($tmp_name, '../assets/images/postimage/'.$new_name);
+            if(isset($new_image)){
+                move_uploaded_file($tmp_name, '../assets/images/postimage/'.$new_image);
             }
-            $_SESSION['success']="Post added successfully";
+            $success[]="Post added successfully";
+            $_SESSION['success']=$success;
             header('location:../index.php');
         }else{
             $_SESSION['errors']=["Error adding post"];
