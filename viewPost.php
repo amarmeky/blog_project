@@ -33,20 +33,9 @@ if (mysqli_num_rows($result) == 1) {
     <div class="row">
       <div class="col-md-12">
         <?php
-        if (isset($_SESSION['errors'])) {
-          foreach ($_SESSION['errors'] as $error) {
-            echo "<div class='alert alert-danger'>$error</div>";
-          }
-          unset($_SESSION['errors']);
-        }
-        if (isset($_SESSION['success'])) {
-          foreach ($_SESSION['success'] as $success) {
-            echo "<div class='alert alert-success'>$success</div>";
-          }
-          unset($_SESSION['success']);
-        }
+        require_once 'inc/error.php';
+        require_once 'inc/success.php';
         ?>
-
         <div class="section-heading">
           <h2>Post</h2>
         </div>
@@ -56,7 +45,7 @@ if (mysqli_num_rows($result) == 1) {
       ?>
         <div class="col-md-6">
           <div class="right-image">
-            <img src="assets/images/postimage/<?php echo $post['image']; ?>" alt="">
+            <img src="assets/images/postimage/<?php echo $post['image']; ?>" alt="No Image Now">
           </div>
         </div>
         <div class="col-md-6">

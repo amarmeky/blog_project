@@ -449,6 +449,11 @@ header .navbar {
 	color: #f33f3f;
 }
 
+.col-md-4 {
+	padding-bottom: 10px;
+
+}
+
 .product-item {
 	display: flex;
 	flex-direction: column;
