@@ -65,7 +65,7 @@
                 <a class="nav-link" href="#">العربية</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="handle/handleLogout.php">Logout</a>
               </li>
             </ul>
           </div>
