@@ -1,6 +1,6 @@
 <?php
-require_once '../inc/conn.php';
+session_start();
 unset($_SESSION['user_id']);
-header('Location: ../login.php');
-exit();
-?>
+session_destroy();
+header("Location: ../login.php");
+exit;

@@ -1,4 +1,5 @@
 <?php
+
 require_once '../inc/conn.php';
 //submit,validate,fetch,home
 
@@ -6,7 +7,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['psw'];
     $errors = [];
-    $success=[];
+    $success = [];
     if (empty($email)) {
         $errors[] = "Email is required";
     }
@@ -24,10 +25,11 @@ if (isset($_POST['submit'])) {
             $verfiy = password_verify($password, $hashed_password);
             if ($verfiy) {
                 $_SESSION['user_id'] = $id;
-                header("location:../index.php");
-                $success[]= "Login Successfully welcome $name";
+                $success[] = "Login Successfully welcome $name";
                 $_SESSION['success'] = $success;
-            }else{
+                header("location:../index.php");
+                exit;
+            } else {
                 $errors[] = "Email or Password is incorrect";
                 header("location:../login.php");
                 $_SESSION['errors'] = $errors;

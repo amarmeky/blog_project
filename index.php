@@ -1,5 +1,6 @@
-<?php require_once 'inc/header.php';
+<?php
 require_once 'inc/conn.php';
+require_once 'inc/header.php';
 
 $query = "select id,title,image,body,created_at from posts";
 $result = mysqli_query($conn, $query);
