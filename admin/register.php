@@ -57,18 +57,10 @@ require_once '../inc/conn.php';
             </div>
         </div>
     </form>
+<?php
+    require_once '../inc/footer.php';
+?>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="inner-content text-center align-self-end">
-                        All rights reserved to Ammar Company 2025
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
 </html>

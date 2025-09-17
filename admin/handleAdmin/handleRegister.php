@@ -40,9 +40,9 @@ if (isset($_POST['submit'])) {
         $query = "insert into users(name,email,phone,password) values('$name','$email','$phone','$passwordhash')";
         $result = mysqli_query($conn, $query);
         if ($result) {
-            $success[] = "welcome $name";
+            $success[] = "done registering $name";
             $_SESSION['success'] = $success;
-            header('location:../../index.php');
+            header('location:../../login.php');
         } else {
             $_SESSION['errors'] = ["Error registering user"];
             header('location:../register.php');

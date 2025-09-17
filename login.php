@@ -25,12 +25,13 @@ require_once 'inc/conn.php';
 </head>
 
 <body>
-
+<div class="login-container">
     <form method="POST" action="handle/handleLogin.php" enctype="multipart/form-data">
         <div class="container w-25">
             <img class="imageLogin" src="assets/images/Blog.jpg" alt="">
             <?php
             require_once 'inc/error.php';
+            require_once 'inc/success.php';
             ?>
             <h1 class="h1 text-center">Login</h1>
             <hr>
@@ -45,18 +46,11 @@ require_once 'inc/conn.php';
             </div>
         </div>
     </form>
+    </div>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="inner-content text-center align-self-end">
-                        All rights reserved to Ammar Company 2025
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<?php
+    require_once 'inc/footer.php';
+?>
 </body>
 
 </html>
