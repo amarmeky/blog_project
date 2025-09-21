@@ -458,8 +458,6 @@ header .navbar {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	max-width: 300px;
-	/* أو العرض المطلوب */
 	background-color: #fff;
 	border: 1px solid #ccc;
 	border-radius: 8px;

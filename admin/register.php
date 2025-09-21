@@ -55,6 +55,10 @@ require_once '../inc/conn.php';
             <div class="clearfix ">
                 <button type="submit" name="submit" class="signupbtn ">Sign Up</button>
             </div>
+                        <div class="d-flex align-items-center">
+                <p class="m-0"> Already have an account? </p>
+            <a class="mx-2" href="../login.php">Log in</a>
+            </div>
         </div>
     </form>
 <?php

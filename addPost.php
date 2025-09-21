@@ -1,7 +1,10 @@
 <?php 
 require_once 'inc/conn.php';
 require_once 'inc/header.php';
-
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
 ?>
 
 <!-- Page Content -->

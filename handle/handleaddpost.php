@@ -1,5 +1,10 @@
 <?php
 require_once '../inc/conn.php';
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login.php');
+    exit;
+}
+$user_id=$_SESSION['user_id'];
 if(isset($_POST['submit'])){
     $title=trim(htmlspecialchars($_POST['title']));
     $body=trim(htmlspecialchars($_POST['body']));
@@ -34,7 +39,7 @@ if(isset($_POST['submit'])){
         $new_image=null;
     }
     if(empty($errors)){
-        $query="INSERT INTO posts (title, body, image,user_id) VALUES ('$title', '$body', '$new_image',1)";
+        $query="INSERT INTO posts (title, body, image,user_id) VALUES ('$title', '$body', '$new_image','$user_id')";
         $result=mysqli_query($conn,$query);
         if ($result) {
             if(isset($new_image)){

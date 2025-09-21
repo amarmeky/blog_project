@@ -1,5 +1,9 @@
 <?php
 require_once '../inc/conn.php';
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login.php');
+    exit;
+}
 if (isset($_POST['submit']) && isset($_GET['id'])) {
     $id = $_GET['id'];
     $title = trim(htmlspecialchars($_POST['title']));
