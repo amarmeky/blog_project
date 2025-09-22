@@ -54,14 +54,14 @@ if (mysqli_num_rows($result) == 1) {
             <h4><?php echo $post['title']; ?></h4>
             <p class='post-view'><?php echo $post['body']; ?></p>
             <p><?php echo $post['created_at']; ?></p>
-
-            <div class="d-flex justify-content-center">
-              <a href="editPost.php?id=<?php echo $post['id']; ?>" class="btn btn-success mr-3 "> edit post</a>
-
-              <a href="handle/handleDeletePost.php?id=<?php echo $post['id']; ?>"
-                onclick="return confirm('Are you sure you want to delete this post?');"
-                class="btn btn-danger "> delete post</a>
-            </div>
+            <?php if (isset($_SESSION['user_id'])) { ?>
+              <div class="d-flex justify-content-center">
+                <a href="editPost.php?id=<?php echo $post['id']; ?>" class="btn btn-success mr-3 "> edit post</a>
+                <a href="handle/handleDeletePost.php?id=<?php echo $post['id']; ?>"
+                  onclick="return confirm('Are you sure you want to delete this post?');"
+                  class="btn btn-danger "> delete post</a>
+              </div>
+            <?php } ?>
           </div>
         </div>
       <?php

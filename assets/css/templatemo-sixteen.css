@@ -642,20 +642,18 @@ footer {
 
 footer .inner-content {
 	border-top: 1px solid #eee;
+	background-color: #f1f1f1;
 	margin-top: 60px;
-	padding: 60px 0px;
-}
-
-footer .inner-content p {
-	text-transform: uppercase;
-}
-
-footer .inner-content p a {
-	color: #f33f3f;
-	margin-left: 3px;
+	padding: 10px 0;
+	width: 100%;
+	position: relative;
 }
 
 
+
+footer .container {
+	padding: 12px 16px;
+}
 
 
 /* Product Page */
