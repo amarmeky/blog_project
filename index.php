@@ -1,15 +1,8 @@
 <?php
 require_once 'inc/conn.php';
-require_once 'inc/header.php';
+require_once 'inc/header.php'; ?>
 
-$query = "select id,title,image,body,created_at from posts";
-$result = mysqli_query($conn, $query);
-if ($result > 0) {
-  $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-} else {
-  $msg = "not found posts";
-}
-?>
+
 <!-- Page Content -->
 <!-- Banner Starts Here -->
 <div class="banner header-text">
@@ -49,6 +42,36 @@ if ($result > 0) {
           <!-- <a href="products.html">view all products <i class="fa fa-angle-right"></i></a> -->
         </div>
       </div>
+      <?php
+      if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+        $page = $_GET['page'];
+      } else {
+        header("Location: " . $_SERVER['PHP_SELF'] . "?page=1");
+      }
+      $limit = 3;
+      $offset = ($page - 1) * $limit;
+      $query = "select count(id) as total from posts";
+      $result = mysqli_query($conn, $query);
+      if (mysqli_num_rows($result) == 1) {
+        $total = mysqli_fetch_assoc($result)['total'];
+      }
+      $numberOfPages = ceil($total / $limit);
+      if ($page > $numberOfPages) {
+        header("Location: " . $_SERVER['PHP_SELF'] . "?page=$numberOfPages");
+      }
+      if ($page < 1) {
+        header("Location: " . $_SERVER['PHP_SELF'] . "?page=1");
+      }
+
+      $query = "select id,title,image,body,created_at from posts order by id limit $limit offset $offset";
+      $result = mysqli_query($conn, $query);
+      if (mysqli_num_rows($result) > 0) {
+        $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+      } else {
+        $msg = "not found posts";
+        echo "<div class='alert alert-danger w-50 text-center'>$msg</div>";
+      }
+      ?>
       <?php if (!empty($posts)) {
         foreach ($posts as $post) {
       ?>
@@ -70,5 +93,17 @@ if ($result > 0) {
     </div>
   </div>
 </div>
+<!-- Pagination -->
 
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center m-2">
+    <li class="page-item ">
+      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page - 1); ?>" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" ><?php echo $page . " of " . $numberOfPages; ?></a></li>
+    <li class="page-item ">
+      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page + 1); ?>">Next</a>
+    </li>
+  </ul>
+</nav>
 <?php require_once 'inc/footer.php' ?>
