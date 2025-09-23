@@ -6,11 +6,30 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 */
 body {
-	font-family: 'Poppins', sans-serif;
 	overflow-x: hidden;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-family: Arial, sans-serif;
+	direction: ltr;
+	text-align: left;
+}
+
+body[lang="ar"] {
+	direction: rtl;
+	text-align: right;
+}
+
+.changelang {
+    background-color: #5c5959;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 23px;
+    margin: 4px;
+
+
 }
 
 p {
@@ -294,13 +313,15 @@ header .navbar {
 }
 
 .navbar .navbar-nav a.nav-link {
-	text-transform: capitalize;
-	font-size: 15px;
-	font-weight: 500;
-	letter-spacing: 0.5px;
-	color: #fff;
-	transition: all 0.5s;
-	margin-top: 5px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #fff;
+    transition: all 0.5s;
+    margin-top: 11px;
+    margin-right: 22px;
+    padding: inherit;
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -500,11 +521,8 @@ header .navbar {
 	margin-bottom: 20px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	/* إضافة الـ ... */
 	white-space: nowrap;
-	/* منع النص من الانتقال لأسطر جديدة */
 	max-width: 100%;
-	/* حدّد عرض النص */
 }
 
 .product-button {

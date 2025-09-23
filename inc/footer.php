@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="row">
       <div class="col-md-12">
-        <div class="inner-content">
+        <div class="inner-content" data-translate="footer">
           All rights reserved to Ammar Company 2025
         </div>
       </div>
@@ -22,6 +22,7 @@
 <script src="assets/js/slick.js"></script>
 <script src="assets/js/isotope.js"></script>
 <script src="assets/js/accordions.js"></script>
+<script src="assets/js/app.js"></script>
 
 
 <script language="text/Javascript">

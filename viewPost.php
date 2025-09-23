@@ -1,6 +1,8 @@
 <?php
 require_once 'inc/conn.php';
 require_once 'inc/header.php';
+?>
+<?php
 $id = $_GET['id'];
 if (!isset($_GET['id'])) {
   header("location: index.php");
@@ -20,8 +22,8 @@ if (mysqli_num_rows($result) == 1) {
     <div class="row">
       <div class="col-md-12">
         <div class="text-content">
-          <h4>new Post</h4>
-          <h2>add new personal post</h2>
+          <h4 data-translate="new-post">new Post</h4>
+          <h2 data-translate="add-new-personal-post">add new personal post</h2>
         </div>
       </div>
     </div>
@@ -38,7 +40,7 @@ if (mysqli_num_rows($result) == 1) {
         require_once 'inc/success.php';
         ?>
         <div class="section-heading">
-          <h2>Post</h2>
+          <h2 data-translate="post">Post</h2>
         </div>
       </div>
       <?php
@@ -56,10 +58,10 @@ if (mysqli_num_rows($result) == 1) {
             <p><?php echo $post['created_at']; ?></p>
             <?php if (isset($_SESSION['user_id'])) { ?>
               <div class="d-flex justify-content-center">
-                <a href="editPost.php?id=<?php echo $post['id']; ?>" class="btn btn-success mr-3 "> edit post</a>
+                <a href="editPost.php?id=<?php echo $post['id']; ?>" class="btn btn-success mr-3 " data-translate="edit-post"> edit post</a>
                 <a href="handle/handleDeletePost.php?id=<?php echo $post['id']; ?>"
                   onclick="return confirm('Are you sure you want to delete this post?');"
-                  class="btn btn-danger "> delete post</a>
+                  class="btn btn-danger " data-translate="delete-post"> delete post</a>
               </div>
             <?php } ?>
           </div>

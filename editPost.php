@@ -1,6 +1,7 @@
 <?php
 require_once 'inc/conn.php';
- require_once 'inc/header.php';
+ require_once 'inc/header.php';?>
+ <?php
  if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
 }
@@ -24,8 +25,8 @@ if (!isset($_GET['id'])) {
     <div class="row">
       <div class="col-md-12">
         <div class="text-content">
-          <h4>Edit Post</h4>
-          <h2>edit your personal post</h2>
+          <h4 data-translate="edit-post">Edit Post</h4>
+          <h2 data-translate="edit-your-personal-post">edit your personal post</h2>
         </div>
       </div>
     </div>
@@ -35,24 +36,24 @@ if (!isset($_GET['id'])) {
 <div class="container w-50 ">
   
   <div class="d-flex justify-content-center">
-    <h3 class="my-5">edit Post</h3>
+    <h3 class="my-5" data-translate="edit-post">edit Post</h3>
   </div>
 
   <form method="POST" action="handle/handleEditPost.php?id=<?php echo $post['id']; ?>" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
+      <label for="title" class="form-label" data-translate="title">Title</label>
       <input type="text" class="form-control" id="title" name="title" value="<?php echo $post['title']; ?>">
     </div>
     <div class="mb-3">
-      <label for="body" class="form-label">Body</label>
+      <label for="body" class="form-label" data-translate="body">Body</label>
       <textarea class="form-control" id="body" name="body" rows="5"><?php echo $post['body']; ?></textarea>
     </div>
     <div class="mb-3">
-      <label for="body" class="form-label">image</label>
+      <label for="body" class="form-label" data-translate="image">Image</label>
       <input type="file" class="form-control-file" id="image" name="image">
     </div>
     <img src="assets/images/postimage/<?php echo $post['image'] ?>" alt="" width="200px" srcset="">
-    <button type="submit" class="btn btn-primary" name="submit">update post</button>
+    <button type="submit" class="btn btn-primary" name="submit" data-translate="update-post">Update Post</button>
   </form>
 </div>
 

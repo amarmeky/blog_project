@@ -38,7 +38,7 @@ require_once 'inc/header.php'; ?>
         require_once 'inc/success.php';
         ?>
         <div class="section-heading">
-          <h2>Latest Posts</h2>
+          <h2 data-translate="latest-posts">Latest Posts</h2>
           <!-- <a href="products.html">view all products <i class="fa fa-angle-right"></i></a> -->
         </div>
       </div>
@@ -83,7 +83,7 @@ require_once 'inc/header.php'; ?>
                 <h6 class="product-date"><?php echo $post['created_at']; ?></h6>
                 <p class='product-body'> <?php echo $post['body']; ?></p>
                 <div class="d-flex justify-content-end">
-                  <a href="viewPost.php?id=<?php echo $post['id']; ?>" class="product-button btn btn-info "> view</a>
+                  <a href="viewPost.php?id=<?php echo $post['id']; ?>" class="product-button btn btn-info" data-translate="view"> view</a>
                 </div>
               </div>
             </div>
@@ -98,11 +98,11 @@ require_once 'inc/header.php'; ?>
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center m-2">
     <li class="page-item ">
-      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page - 1); ?>" tabindex="-1">Previous</a>
+      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page - 1); ?>" tabindex="-1" data-translate="previous">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" ><?php echo $page . " of " . $numberOfPages; ?></a></li>
     <li class="page-item ">
-      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page + 1); ?>">Next</a>
+      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page + 1); ?>" data-translate="next">Next</a>
     </li>
   </ul>
 </nav>

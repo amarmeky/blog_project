@@ -53,28 +53,25 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">All Posts
+              <a class="nav-link" href="index.php" data-translate="all-posts">All Posts
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="addPost.php">Add New Post</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">English</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">العربية</a>
+              <a class="nav-link" href="addPost.php" data-translate="add-new-post">Add New Post</a>
             </li>
             <?php if (isset($_SESSION['user_id'])): ?>
               <li class="nav-item">
-                <a class="nav-link" href="handle/handleLogout.php">Logout</a>
+                <a class="nav-link" href="handle/handleLogout.php" data-translate="logout">Logout</a>
               </li>
             <?php else: ?>
               <li class="nav-item">
-                <a class="nav-link" href="login.php">Login</a>
+                <a class="nav-link" href="login.php" data-translate="login">Login</a>
               </li>
             <?php endif; ?>
+            <li class="nav-item">
+              <button class="changelang" data-translate="language_switch" onclick="switchLanguage()"></button>
+            </li>
           </ul>
         </div>
       </div>
