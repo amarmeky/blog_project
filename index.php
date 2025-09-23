@@ -97,13 +97,30 @@ require_once 'inc/header.php'; ?>
 
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center m-2">
-    <li class="page-item ">
-      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page - 1); ?>" tabindex="-1" data-translate="previous">Previous</a>
+    <?php if ($page > 1) { ?>
+      <li class="page-item">
+        <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page - 1); ?>" data-translate="previous">Previous</a>
+      </li>
+    <?php } else { ?>
+      <li class="page-item disabled">
+        <span class="page-link" tabindex="-1" aria-disabled="true" data-translate="previous">Previous</span>
+      </li>
+    <?php } ?>
+
+    <li class="page-item">
+      <a class="page-link"><?php echo $page . " of " . $numberOfPages; ?></a>
     </li>
-    <li class="page-item"><a class="page-link" ><?php echo $page . " of " . $numberOfPages; ?></a></li>
-    <li class="page-item ">
-      <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page + 1); ?>" data-translate="next">Next</a>
-    </li>
+
+    <?php if ($page < $numberOfPages) { ?>
+      <li class="page-item">
+        <a class="page-link" href="<?php echo $_SERVER['PHP_SELF'] . "?page=" . ($page + 1); ?>" data-translate="next">Next</a>
+      </li>
+    <?php } else { ?>
+      <li class="page-item disabled">
+        <span class="page-link" tabindex="-1" aria-disabled="true" data-translate="next">Next</span>
+      </li>
+    <?php } ?>
   </ul>
 </nav>
+
 <?php require_once 'inc/footer.php' ?>

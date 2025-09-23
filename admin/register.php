@@ -88,7 +88,6 @@ require_once '../inc/conn.php';
     <script src="../assets/js/owl.js"></script>
     <script src="../assets/js/slick.js"></script>
     <script src="../assets/js/isotope.js"></script>
-    <script src="../assets/js/accordions.js"></script>
 <script>let language = localStorage.getItem('language') || 'en';
 
 function loadLanguage() {
