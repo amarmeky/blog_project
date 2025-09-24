@@ -5,27 +5,37 @@ require_once 'inc/header.php'; ?>
 
 <!-- Page Content -->
 <!-- Banner Starts Here -->
-<div class="banner header-text">
-  <div class="owl-banner owl-carousel">
-    <div class="banner-item-01">
-      <div class="text-content">
-        <!-- <h4>Best Offer</h4> -->
-        <!-- <h2>New Arrivals On Sale</h2> -->
-      </div>
+
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000">
+      <img src="assets/images/products-heading.jpg" class="d-block w-100" alt="slide 1">
     </div>
-    <div class="banner-item-02">
-      <div class="text-content">
-        <!-- <h4>Flash Deals</h4> -->
-        <!-- <h2>Get your best products</h2> -->
-      </div>
+
+    <div class="carousel-item" data-bs-interval="5000">
+      <img src="assets/images/services-bg.jpg" class="d-block w-100" alt="slide 2">
     </div>
-    <div class="banner-item-03">
-      <div class="text-content">
-        <!-- <h4>Last Minute</h4> -->
-        <!-- <h2>Grab last minute deals</h2> -->
-      </div>
+
+    <div class="carousel-item" data-bs-interval="5000">
+      <img src="assets/images/slide_01.jpg" class="d-block w-100" alt="slide 3">
     </div>
   </div>
+
+  <!-- أزرار السابق/التالي -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">السابق</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">التالي</span>
+  </button>
 </div>
 <!-- Banner Ends Here -->
 
